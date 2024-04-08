@@ -1,0 +1,112 @@
+<!-- SANITY CHECK BANNER
+    This is just for checking, that your setup works.
+    You can – and should – remove this later
+    -->
+<div class="container mt-3 mb-3" *ngIf="bannerError">
+  <div class="alert alert-danger" role="alert">
+    <h4>Error!</h4> {{ bannerError }}
+    <p>Could not load tournaments.</p>
+    <p>Could not load tournaments.</p>
+    <p>Something is not quite right. Did you start the backend?</p>
+  </div>
+</div>
+
+<div class="container mt-3" *ngIf="!bannerError && tournaments">
+  <div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Well done!</h4>
+    <p>Your application is up and running.</p>
+    <p>You should see the current list of tournaments below.</p>
+  </div>
+</div>
+<!-- END SANITY CHECK BANNER -->
+
+
+
+<div class="d-flex flex-row w-auto">
+  <button class="btn btn-primary mr-1" (click)="reloadTournaments()" aria-label="Reload tournaments">
+    <i class="bi bi-arrow-clockwise"></i>
+    Reload
+  </button>
+  <span style="flex: 1"></span>
+  <a class="btn btn-secondary" routerLink="create" aria-label="New tournament">
+    <i class="bi bi-plus-lg"></i>
+    New tournament
+  </a>
+</div>
+
+<form class="d-flex flex-row w-auto mb-3" (submit)="reloadTournaments()">
+  <!-- this button is here, just so that simple submitting of this form
+       to reload the tournaments, is possible -->
+  <button type="submit" hidden="hidden">submit</button>
+  <div class="flex-grow-1">
+    <label for="searchTournamentName" class="col-form-label">
+      Name
+    </label>
+    <input type="text" id="searchTournamentName" name="searchTournamentName"
+           class="form-control"
+           [(ngModel)]="searchParams.name"
+           (ngModelChange)="searchChanged()"
+    >
+  </div>
+  <div class="flex-grow-1">
+    <label for="searchStartDate" class="col-form-label">
+      Start Date
+    </label>
+    <!-- pattern and placeholder are fallbacks for browser, that use a simple text input for type="date"
+     The date format of the plain HTML date input, in browser that support it is, sadly, not changeable in a cross-browser way
+  -->
+    <input type="date" id="searchStartDate" name="searchStartDate"
+           pattern="\d{4}-\d{2}-\d{2}"
+           placeholder="yyyy-mm-dd"
+           class="form-control"
+           [(ngModel)]="startDate"
+           (ngModelChange)="searchChanged()"
+    >
+  </div>
+
+  <div class="flex-grow-1">
+    <label for="searchEndDate" class="col-form-label">
+      End Date
+    </label>
+    <input type="date" id="searchEndDate" name="searchEndDate"
+           pattern="\d{4}-\d{2}-\d{2}"
+           placeholder="yyyy-mm-dd"
+           class="form-control"
+           [(ngModel)]="endDate"
+           (ngModelChange)="searchChanged()"
+    >
+  </div>
+
+  <!-- Add any other search criteria here -->
+</form>
+
+<div class="mt-3">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th class="min-width">Standings</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let tournament of tournaments" class="center-td">
+      <td>{{tournament.name}}</td>
+      <td>{{tournament.startDate.toLocaleDateString()}}</td>
+      <td>{{tournament.endDate.toLocaleDateString()}}</td>
+      <td>
+
+        <div class="btn-group">
+          <a class="btn btn-light"
+             [routerLink]="[tournament.id, 'standings']"
+             aria-label="Show tournament standings">
+            <i class="bi bi-info-lg"></i>
+          </a>
+        </div>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

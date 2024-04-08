@@ -1,0 +1,24 @@
+2023-10-13 18:54:14.365246+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Datenumwandlungsfehler beim Umwandeln von "DATE '2023-10-05' (HORSE: ""SEX"" ENUM('MALE', 'FEMALE') NOT NULL)"
+Data conversion error converting "DATE '2023-10-05' (HORSE: ""SEX"" ENUM('MALE', 'FEMALE') NOT NULL)"; SQL statement:
+INSERT INTO horse(name, date_of_birth, sex, height, weight, breed_id) VALUES (?, ?, ?, ?, ?, ?) [22018-224]
+2023-10-13 18:58:37.592490+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Datenumwandlungsfehler beim Umwandeln von "DATE '2023-10-05' (HORSE: ""SEX"" ENUM('MALE', 'FEMALE') NOT NULL)"
+Data conversion error converting "DATE '2023-10-05' (HORSE: ""SEX"" ENUM('MALE', 'FEMALE') NOT NULL)"; SQL statement:
+INSERT INTO horse(name, date_of_birth, sex, height, weight, breed_id) VALUES (?, ?, ?, ?, ?, ?) [22018-224]
+2023-10-13 18:58:57.170182+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Datenumwandlungsfehler beim Umwandeln von "DATE '2023-10-05' (HORSE: ""SEX"" ENUM('MALE', 'FEMALE') NOT NULL)"
+Data conversion error converting "DATE '2023-10-05' (HORSE: ""SEX"" ENUM('MALE', 'FEMALE') NOT NULL)"; SQL statement:
+INSERT INTO horse (name, date_of_birth, sex, height, weight, breed_id) VALUES (?, ?, ?, ?, ?, ?) [22018-224]
+2023-10-13 19:01:05.917851+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Datenumwandlungsfehler beim Umwandeln von "DATE '2023-10-05' (HORSE: ""SEX"" ENUM('MALE', 'FEMALE') NOT NULL)"
+Data conversion error converting "DATE '2023-10-05' (HORSE: ""SEX"" ENUM('MALE', 'FEMALE') NOT NULL)"; SQL statement:
+INSERT INTO horse(name, date_of_birth, sex, height, weight, breed_id) VALUES (?, ?, ?, ?, ?, ?) [22018-224]
+2023-10-25 23:56:51.979836+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabelle "STANDINGS" nicht gefunden
+Table "STANDINGS" not found; SQL statement:
+SELECT * FROM standings WHERE tId = ? [42102-224]
+2023-10-26 00:02:01.120341+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabelle "STANDINGS" nicht gefunden
+Table "STANDINGS" not found; SQL statement:
+SELECT * FROM standings WHERE tId = ? [42102-224]
